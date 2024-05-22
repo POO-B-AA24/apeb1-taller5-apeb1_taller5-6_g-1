@@ -15,16 +15,12 @@ public class Problema3_Empresa {
 
     public void agregarDepartamento(Problema3_Departamento departamento) {
         departamentos.add(departamento);
-    }
+    }  
 
-    public void mostrarInformacionEmpresa() {
-        System.out.println("Nombre de la Empresa: " + nombre);
-        System.out.println("RUC: " + ruc);
-        System.out.println("Dirección: " + direccion);
-        System.out.println("Departamentos:");
-        for (Problema3_Departamento departamento : departamentos) {
-            System.out.println(departamento);
-        }
+    @Override
+    public String toString() {
+        return  "nombre: " + nombre + "\nruc: " + ruc + "\ndireccion: " + direccion ;
     }
+    
 }
  
