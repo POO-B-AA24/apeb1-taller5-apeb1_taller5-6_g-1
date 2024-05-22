@@ -11,4 +11,8 @@ public class Problema5_Evento {
         this.ubicacion = ubicacion;
         this.descripcion = descripcion;
     } 
+    @Override
+    public String toString() {
+        return "Problema5_Evento{" + "nombre=" + nombre + "fecha="+fecha+"ubicacion="+ubicacion+"descripcion="+descripcion+'}';
+    }
 }
