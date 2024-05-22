@@ -16,6 +16,10 @@ public class Problema5_ConflictoInternacional {
     }
 
     public void agregarEvento(Problema5_Evento evento) {
-        eventos.add(evento);
+        this.eventos.add(evento);
     } 
+    @Override
+    public String toString() {
+        return "Problema5_ConflictoInternacional{" + "nombre=" + nombre + ", fechaInicio=" + fechaInicio + ", estadoActual=" + estadoActual +'}';
+    }
 }

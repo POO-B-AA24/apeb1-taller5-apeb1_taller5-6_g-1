@@ -1,30 +1,37 @@
 import java.util.List;
 
 public class Problema5_Onu {
-    public void convocarReunionUrgente(Problema5_ConflictoInternacional conflicto) {
-        if (existe50PorcientoPaises(conflicto)) {
-            System.out.println("Se debe convocar una reunión urgente de la ONU.");
-        }
+    public boolean convocarReunionUrgente(Problema5_ConflictoInternacional conflicto) {
+        return existe50PorcientoPaises(conflicto);
     }
 
     private boolean existe50PorcientoPaises(Problema5_ConflictoInternacional conflicto) {
         List<Problema5_Pais> paisesInvolucrados = conflicto.paisesInvolucrados;
         int totalPaises = paisesInvolucrados.size();
-        int countPaisesConEventoBatalloso = 0;
+        int PaisesEnGuerra = 0;
 
         for (Problema5_Pais pais : paisesInvolucrados) {
-            if (existeEventoBatallosoEnPais(pais, conflicto.eventos)) {
-                countPaisesConEventoBatalloso++;
+            if (existeGuerraEnPais(pais, conflicto.eventos)) {
+                PaisesEnGuerra++;
             }
         }
 
-        double porcentajePaisesConEventoBatalloso = (double) countPaisesConEventoBatalloso / totalPaises * 100;
-        return porcentajePaisesConEventoBatalloso > 50;
+        double porcentajePaisesEnGuerra = PaisesEnGuerra / totalPaises * 100;
+        return porcentajePaisesEnGuerra > 50;
     }
 
-    private boolean existeEventoBatallosoEnPais(Problema5_Pais pais, List<Problema5_Evento> eventos) {
+    private boolean existeGuerraEnPais(Problema5_Pais pais, List<Problema5_Evento> eventos) {
         for (Problema5_Evento evento : eventos) {
-            if (evento.descripcion.toLowerCase().contains("batalla") && evento.ubicacion.equals(pais.nombre)) {
+            if (evento.descripcion.equalsIgnoreCase("batalla") && evento.ubicacion.contains(pais.nombre)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean guerraMundial(Problema5_ConflictoInternacional conflicto){
+        for (Problema5_Pais paisINV : conflicto.paisesInvolucrados) {
+            if (paisINV.primerMundo) {
                 return true;
             }
         }
