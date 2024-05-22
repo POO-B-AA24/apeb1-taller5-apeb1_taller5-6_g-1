@@ -1,9 +1,9 @@
 
 public class Problema3_Departamento {
-    private String nombre;
-    private int numeroEmpleados;
-    private double produccionAnual;
-    private char categoria;
+    public String nombre;
+    public int numeroEmpleados;
+    public double produccionAnual;
+    public char categoria;
 
     public Problema3_Departamento(String nombre, int numeroEmpleados, double produccionAnual) {
         this.nombre = nombre;
