@@ -2,7 +2,7 @@
 public class Problema5_Pais {
     public String nombre;
     public boolean primerMundo;
-    public Problema5_Pais(String nombre,Boolean primerMundo) {
+    public Problema5_Pais(String nombre,boolean primerMundo) {
         this.nombre = nombre;
         this.primerMundo = primerMundo;
     }
